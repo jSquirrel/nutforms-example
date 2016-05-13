@@ -40,35 +40,32 @@
     </developers>
 
     <dependencies>
-
-        <!-- Other project modules -->
+        <!-- Nutforms server modules -->
         <dependency>
-            <groupId>nutforms</groupId>
-            <artifactId>meta</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>nutforms</groupId>
+            <groupId>cz.cvut.fel.nutforms</groupId>
             <artifactId>layout</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-
         <dependency>
-            <groupId>nutforms</groupId>
+            <groupId>cz.cvut.fel.nutforms</groupId>
             <artifactId>localization</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-
         <dependency>
-            <groupId>nutforms</groupId>
-            <artifactId>rules</artifactId>
+            <groupId>cz.cvut.fel.nutforms</groupId>
+            <artifactId>meta</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>cz.cvut.fel.nutforms</groupId>
+            <artifactId>widget</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
+        <!-- Nutforms rules module-->
         <dependency>
-            <groupId>nutforms</groupId>
-            <artifactId>widget</artifactId>
+            <groupId>cz.cvut.fel.nutforms</groupId>
+            <artifactId>rules</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
