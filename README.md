@@ -1,6 +1,8 @@
+# Nutforms Example
 
-# Installation
+Example application using automatic aspect-oriented form generation.
 
+## Installation
 
 This project is managed my [Maven](http://maven.apache.org), which must
 be installed on your system.
@@ -29,7 +31,7 @@ $ cd ./nutforms-example
 $ mvn install
 ```
 
-# Deployment
+## Deployment
 
 The application can be deployed to any server supporting WAR artifacts,
 for example [Apache Tomcat](http://tomcat.apache.org).
@@ -45,16 +47,16 @@ $ cd ./target
 $ heroku deploy:war --war example-1.0-SNAPSHOT.war --app nutforms
 ```
 
-# Contributing
+## Contributing
 
 Feel free to contribute to the project by reporting [issues](https://github.com/jSquirrel/nutforms-example/issues)
 or creating [pull requests](https://github.com/jSquirrel/nutforms-example/pulls).
 
-# License
+## License
 
 This software is provided under [MIT License](https://opensource.org/licenses/MIT).
 
-# Documentation
+## Documentation
 
 For better understanding of this example application,
 please see [documentation](https://github.com/jSquirrel/nutforms-example/tree/master/docs/en/index.md).
