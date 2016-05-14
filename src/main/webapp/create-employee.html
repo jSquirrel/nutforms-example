@@ -60,33 +60,15 @@
         <div id="form"></div>
     </div>
     <div class="col-md-6">
-        <pre style="margin-top: 60px;"><code class="html">&lt;body id="page"&gt;
-&lt;div nf-layout="menu/cs"&gt;&lt;/div&gt;
-&lt;div class="container"&gt;
-    &lt;div nf-layout="cz.cvut.fel.nutforms.example.model.Employee/edit"&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;script type="application/javascript"&gt;
-    nutforms.bind(document.getElementById("page"), "en_US");
-&lt;/script&gt;
-&lt;/body&gt;</code></pre>
-        <p>HTML Page <span style="font-style: italic;">webapp/create-employee.html</span></p>
-        <pre style="margin-top: 60px;"><code class="html">&lt;form nf-entity-form="cz.cvut.fel.nutforms.example.model.Employee:new"&gt;
-    &lt;h1 nf-form-label="nf-form-label"&gt;&lt;/h1&gt;
-&lt;/form&gt;</code></pre>
-        <p>Used layout <span style="font-style: italic;">resources/layout/cz.cvut.fel.nutforms.example.model.Employee/new.html</span>
-        </p>
-        <pre style="margin-top: 60px;"><code class="html">&lt;div class="form-group"&gt;
-    &lt;label nf-field-widget-label="{attribute.name}" for="{attribute.name}"&gt;{attribute.formLabel}&lt;/label&gt;
-    &lt;input nf-field-widget-value="{attribute.name}" class="form-control" id="{attribute.name}" name="{attribute.name}"
-           type="text"&gt;
-&lt;/div&gt;</code></pre>
-        <p>Used widget for First name and Last name <span style="font-style: italic;">default/text-input.html</span></p>
-        <pre style="margin-top: 60px;"><code class="html">&lt;div class="form-group"&gt;
-    &lt;label nf-field-widget-label="{attribute.name}" for="{attribute.name}"&gt;{attribute.formLabel}&lt;/label&gt;
-    &lt;input nf-field-widget-value="{attribute.name}" class="form-control" id="{attribute.name}" name="{attribute.name}"
-           type="number" disabled="disabled"&gt;
-&lt;/div&gt;</code></pre>
-        <p>Used widget for ID <span style="font-style: italic;">disabled/number-input.html</span></p>
+        <pre style="margin-top: 60px;"><code class="javascript">Nutforms.generateForm(
+    document.getElementById("form"),
+    "cz.cvut.fel.nutforms.example.model.Employee", // Entity name
+    "cs_CZ", // Locale
+    null, // Entity id
+    "common/two-column", // Layout name
+    mappingFunction, // Widget mapping function
+    "new" // Business context
+);</code></pre>
     </div>
 </div>
 
@@ -115,7 +97,7 @@
             "cz.cvut.fel.nutforms.example.model.Employee",       // Entity name
             "en_US",                                             // Locale
             null,                                                // Entity id
-            "cz.cvut.fel.nutforms.example.model.Employee/new",   // Layout name
+            "common/one-column-id-first",   // Layout name
             mappingFunction,                                     // Mapping function
             "new"                                                // Business context
     );

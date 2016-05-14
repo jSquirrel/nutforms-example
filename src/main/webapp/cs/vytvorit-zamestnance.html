@@ -60,17 +60,18 @@
         <div id="form"></div>
     </div>
     <div class="col-md-6">
-        <pre style="margin-top: 60px;"><code class="html">&lt;body id="page"&gt;
-&lt;div nf-layout="menu/cs"&gt;&lt;/div&gt;
-&lt;div class="container"&gt;
-    &lt;div nf-layout="cz.cvut.fel.nutforms.example.model.Employee/edit"&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;script type="application/javascript"&gt;
-    nutforms.bind(document.getElementById("page"), "cs_CZ");
-&lt;/script&gt;
-&lt;/body&gt;</code></pre>
+        <pre style="margin-top: 60px;"><code class="javascript">Nutforms.generateForm(
+    document.getElementById("form"),
+    "cz.cvut.fel.nutforms.example.model.Employee", // Entity name
+    "cs_CZ", // Locale
+    null, // Entity id
+    "common/two-column", // Layout name
+    mappingFunction, // Widget mapping function
+    "new" // Business context
+);</code></pre>
+        <p>Vytvoření formuláře</p>
         <p>HTML Page <span style="font-style: italic;">webapp/cs/vytvorit-zamestnance.html</span></p>
-        <pre style="margin-top: 60px;"><code class="html">&lt;form nf-entity-form="cz.cvut.fel.nutforms.example.model.Employee:new"&gt;
+        <pre style="margin-top: 60px;"><code class="html">&lt;form&gt;
     &lt;h1 nf-form-label="nf-form-label"&gt;&lt;/h1&gt;
 &lt;/form&gt;</code></pre>
         <p>Used layout <span style="font-style: italic;">resources/layout/cz.cvut.fel.nutforms.example.model.Employee/new.html</span></p>
@@ -106,13 +107,13 @@
 
     // Generate the form
     Nutforms.generateForm(
-            document.getElementById("form"),                     // HTML Element
-            "cz.cvut.fel.nutforms.example.model.Employee",       // Entity name
-            "cs_CZ",                                             // Locale
-            null,                                                // Entity id
-            "cz.cvut.fel.nutforms.example.model.Employee/new",   // Layout name
-            mappingFunction,                                     // Mapping function
-            "new"                                                // Business context
+        document.getElementById("form"),                     // HTML Element
+        "cz.cvut.fel.nutforms.example.model.Employee",       // Entity name
+        "cs_CZ",                                             // Locale
+        null,                                                // Entity id
+        "common/two-column",                                 // Layout name
+        mappingFunction,                                     // Mapping function
+        "new"                                                // Business context
     );
 </script>
 <script type="application/javascript">
