@@ -1,6 +1,11 @@
 <form class="form" role="form" nf-entity-form="cz.cvut.fel.nutforms.example.model.Bug:new">
     <h1 nf-form-label="nf-form-label"></h1>
-    <div class="column-md"
-    <div nf-field-widget="id"></div>
-    <!-- Other values are rendered here -->
+    <div nf-field-iterator="nf-field-iterator">
+        <div class="col-md-6">
+            <div nf-field-widget></div>
+        </div>
+        <div class="col-md-6">
+            <div nf-field-widget></div>
+        </div>
+    </div>
 </form>
