@@ -1,16 +1,6 @@
-/*
- * Variables:
- *  - mappingFunction - set your function as value of this variable
- *  - model {string} - Name of the class
- *  - context {string} - Name of the context
- *  - attributeName {string} - Name of the attribute
- *  - attributeType {string} - Type of the attribute
- *  - isAttributePrimary {boolean} - Is the attribute primary?
- */
-
 mappingFunction = function (attribute) {
     var widgetNamespace = "default";
-    if (attribute.primary == true) {
+    if (attribute.primary == true || attribute.model.context == "read" || attribute.model.context == "delete") {
         widgetNamespace = "disabled";
     }
 
