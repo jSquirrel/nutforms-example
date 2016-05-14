@@ -128,9 +128,9 @@
 	    model.hasErrors = function () {
 	        var errors = false;
 	        Object.keys(model.attributes).forEach(function (attr) {
-	            return errors |= model.getAttribute(attr).hasErrors();
+	            return errors |= model.attributes[attr]['validation'].hasErrors();
 	        });
-	        //Object.keys(model.relations).forEach((relation) => errors |= model.getRelation(relation).hasErrors());
+	        //Object.keys(model.relations).forEach((relation) => errors |= model.relations[relation]['validation'].hasErrors());
 	        errors |= model.validation.hasErrors(); // toDo: probably also add state
 	        return errors;
 	    };
@@ -166,6 +166,7 @@
 	        // toDo: handle security rules
 	    });
 	    if (!model.hasRules) {
+	        model['validation'].state = ValidationState.VALID;
 	        Nutforms.listen(NutformsActions.FORM_SUBMITTED, FormSubmitted.callback);
 	    }
 	}
@@ -1265,10 +1266,8 @@
 	 * events.
 	 *
 	 * @param {Model} model form rich model
-	 * @param values
 	 */
-	function callback(model, values) {
-	    console.log("Forms submitted callback", model);
+	function callback(model) {
 	    if (!model.hasErrors()) {
 	        model.trigger(ValidationActions.MODEL_VALID, model);
 	        console.log("Triggered MODEL_VALID");
