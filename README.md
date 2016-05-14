@@ -26,8 +26,8 @@ $ mvn install
 Third, download and install the Nutforms Rules library and build it.
 
 ```
-$ git clone https://github.com/jSquirrel/nutforms-rules ./nutforms-rules
-$ cd ./nutforms-rules
+$ git clone https://github.com/jSquirrel/nutforms-rules-server ./nutforms-rules-server
+$ cd ./nutforms-rules-server
 $ mvn install
 ```
 
