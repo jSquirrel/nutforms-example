@@ -32,16 +32,18 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bug <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/create-bug.html">Create</a></li>
-                            <li><a href="/list-bugs.html">List</a></li>
-                            <!--<li role="separator" class="divider"></li>-->
+                            <li><a href="/read-bug.html">Read</a></li>
+                            <li><a href="/edit-bug.html">Edit</a></li>
+                            <li><a href="/delete-bug.html">Delete</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/create-employee.html">Create</a></li>
-                            <li><a href="/list-employees.html">List</a></li>
-                            <!--<li role="separator" class="divider"></li>-->
+                            <li><a href="/read-employee.html">Read</a></li>
+                            <li><a href="/edit-employee.html">Edit</a></li>
+                            <li><a href="/delete-employee.html">Delete</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -62,7 +64,7 @@
             customizable widgets and layouts. This way, you can write less code and focus on what really matters.</p>
     </div>
 
-    <div class="col-md-9" style="margin-bottom: 60px;">
+    <div class="col-md-12" style="margin-bottom: 60px;">
 
         <h2>Model deifinition</h2>
         <p>Define your model in Java Persistence in one place.</p>
@@ -208,38 +210,6 @@ end</code></pre>
         <pre style="margin-top: 20px;"><code class="html">&lt;script type="application/javascript"&gt;
 nutforms.bind(document.getElementById("page"), "en_US");
 &lt;/script&gt;</code></pre>
-    </div>
-
-
-    <div class="col-md-3">
-        <div class="sidebar-module">
-            <h4>Bug</h4>
-            <ul class="list-unstyled">
-                <li><a href="create-bug.html">Create Bug</a></li>
-                <li><a href="edit-bug.html?id=1">Edit Bug #1</a></li>
-                <li><a href="edit-bug.html?id=2">Edit Bug #2</a></li>
-                <li><a href="edit-bug.html?id=3">Edit Bug #3</a></li>
-                <li><a href="delete-bug.html?id=1">Delete Bug #1</a></li>
-                <li><a href="delete-bug.html?id=2">Delete Bug #2</a></li>
-                <li><a href="delete-bug.html?id=3">Delete Bug #3</a></li>
-                <!--<li><a href="list-bugs.html">List Bugs</a></li>-->
-            </ul>
-        </div>
-        <div class="sidebar-module">
-            <h4>Employee</h4>
-            <ul class="list-unstyled">
-                <li><a href="create-employee.html">Create Employee</a></li>
-                <li><a href="edit-employee.html?id=1">Edit Employee #1</a></li>
-                <li><a href="edit-employee.html?id=2">Edit Employee #2</a></li>
-                <li><a href="edit-employee.html?id=3">Edit Employee #3</a></li>
-                <li><a href="edit-employee.html?id=4">Edit Employee #4</a></li>
-                <li><a href="delete-employee.html?id=1">Delete Employee #1</a></li>
-                <li><a href="delete-employee.html?id=2">Delete Employee #2</a></li>
-                <li><a href="delete-employee.html?id=3">Delete Employee #3</a></li>
-                <li><a href="delete-employee.html?id=4">Delete Employee #4</a></li>
-                <!--<li><a href="list-employees.html">List Employees</a></li>-->
-            </ul>
-        </div>
     </div>
 </div>
 </body>

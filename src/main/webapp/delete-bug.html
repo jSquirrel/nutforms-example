@@ -13,11 +13,51 @@
 </head>
 <body style="padding: 20px auto" id="page">;
 
-<div nf-layout="menu/en"></div>
+<div class="container">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Nutforms example app</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bug <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/create-bug.html">Create</a></li>
+                            <li><a href="/read-bug.html">Read</a></li>
+                            <li><a href="/edit-bug.html">Edit</a></li>
+                            <li><a href="/delete-bug.html">Delete</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/create-employee.html">Create</a></li>
+                            <li><a href="/read-employee.html">Read</a></li>
+                            <li><a href="/edit-employee.html">Edit</a></li>
+                            <li><a href="/delete-employee.html">Delete</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/cs/index.html">CS</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
 
 <div class="container">
     <div class="col-md-6">
-        <div nf-layout="cz.cvut.fel.nutforms.example.model.Bug/delete"></div>
+        <div id="form"></div>
     </div>
     <div class="col-md-6">
         <pre style="margin-top: 60px;"><code class="html">&lt;body id="page"&gt;
@@ -51,10 +91,33 @@
     </div>
 </div>
 
-<script src="js/vendors.js"></script>
-<script src="js/bundle.js"></script>
+<script src="node_modules/nutforms-web-client/dist/nutforms.js"></script>
+<script src="node_modules/nutforms-rules-web-client/dist/nutforms-rules-web-client.js"></script>
+<script type="text/javascript">
+    // Set nutforms aspects source
+    Nutforms.setAspectsSource(new NutformsApiAspectsSource(
+            document.location.origin + '/',         // Api URL
+            "admin",                                // Api user
+            "1234")                                 // Api user's password
+    );
+
+    // Retrieve Widget Mapping function
+    var mappingFunctionString = Nutforms.aspectsSource.fetchWidgetMapping();
+    var mappingFunction;
+    eval(mappingFunctionString);
+
+    // Generate the form
+    Nutforms.generateForm(
+            document.getElementById("form"),                  // HTML Element
+            "cz.cvut.fel.nutforms.example.model.Bug",         // Entity name
+            "en_US",                                          // Locale
+            1,                                                // Entity id
+            "cz.cvut.fel.nutforms.example.model.Bug/delete",  // Layout name
+            mappingFunction,                                  // Mapping function
+            "delete"                                          // Business context
+    );
+</script>
 <script type="application/javascript">
-    nutforms.bind(document.getElementById("page"), "en_US");
     hljs.initHighlighting();
 </script>
 </body>

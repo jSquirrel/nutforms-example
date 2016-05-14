@@ -1,10 +1,10 @@
-package cz.cvut.fel.nutforms.example.model.Bug.list;
+package cz.cvut.fel.nutforms.example.model.Bug.read;
 
 import cz.cvut.fel.nutforms.example.model.Bug;
 
 dialect  "mvel"
 
-rule "edit"
+rule "read"
     when
     then
 end

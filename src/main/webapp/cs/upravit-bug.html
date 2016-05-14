@@ -11,8 +11,7 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
 </head>
-<body style="padding: 20px auto" page="id">;
-
+<body style="padding: 20px auto" id="page">;
 
 <div class="container">
     <nav class="navbar navbar-default">
@@ -32,17 +31,19 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bug <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/cs/vytvorit-bug.html">Vytvorit</a></li>
-                            <!--<li><a href="/cs/seznam-bugu.html">Seznam</a></li>-->
-                            <!--<li role="separator" class="divider"></li>-->
+                            <li><a href="/cs/vytvorit-bug.html">Vytvořit</a></li>
+                            <li><a href="/cs/zobrazit-bug.html">Zobrazit</a></li>
+                            <li><a href="/cs/upravit-bug.html">Upravit</a></li>
+                            <li><a href="/cs/smazat-bug.html">Smazat</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Zamestnanec <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/cs/vytvorit-zamestnance.html">Vytvorit</a></li>
-                            <!--<li><a href="/cs/seznam-zamestnancu.html">Seznam</a></li>-->
-                            <!--<li role="separator" class="divider"></li>-->
+                            <li><a href="/cs/vytvorit-zamestnance.html">Vytvořit</a></li>
+                            <li><a href="/cs/zobrazit-zamestnance.html">Zobrazit</a></li>
+                            <li><a href="/cs/upravit-zamestnance.html">Upravit</a></li>
+                            <li><a href="/cs/smazat-zamestnance.html">Smazat</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -97,8 +98,8 @@
     </div>
 </div>
 
-<script src="js/nutforms.js"></script>
-<script src="js/nutforms-rules-web-client.js"></script>
+<script src="/node_modules/nutforms-web-client/dist/nutforms.js"></script>
+<script src="/node_modules/nutforms-rules-web-client/dist/nutforms-rules-web-client.js"></script>
 <script type="text/javascript">
     // Set nutforms aspects source
     Nutforms.setAspectsSource(new NutformsApiAspectsSource(
