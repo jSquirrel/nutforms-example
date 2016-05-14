@@ -15,11 +15,19 @@ $ cd ./adaptive-restful-api
 $ mvn install
 ```
 
-Then, download and install the Nutforms Server library and build it.
+Second, download and install the Nutforms Server library and build it.
 
 ```
 $ git clone https://github.com/jSquirrel/nutforms-server ./nutforms-server
 $ cd ./nutforms-server
+$ mvn install
+```
+
+Third, download and install the Nutforms Rules library and build it.
+
+```
+$ git clone https://github.com/jSquirrel/nutforms-rules ./nutforms-rules
+$ cd ./nutforms-rules
 $ mvn install
 ```
 
