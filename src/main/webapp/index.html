@@ -105,7 +105,7 @@ public class Bug {
 
 
         <h2 style="margin-top: 80px">Layouts usage</h2>
-        <p>Define your layouts and use them in your HTML pages.</p>
+        <p>Define your form layouts.</p>
         <pre style="margin-top: 20px;"><code class="html">&lt;form&gt;
     &lt;h1 nf-form-label="nf-form-label"&gt;&lt;/h1&gt;
     &lt;div nf-field-widget="id"&gt;&lt;/div&gt;
@@ -113,11 +113,6 @@ public class Bug {
     &lt;div nf-field-widget="log"&gt;&lt;/div&gt;
 &lt;/form&gt;</code></pre>
         <p>Layout "cz.cvut.fel.nutforms.example.model.Bug/new"</p>
-
-        <pre style="margin-top: 20px;"><code class="html">&lt;div class="container"&gt;
-    &lt;div nf-layout="cz.cvut.fel.nutforms.example.model.Bug/new"&gt;&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-        <p>Usage of layout in your HTML page</p>
 
 
         <h2 style="margin-top: 80px">Widgets usage</h2>
@@ -127,42 +122,31 @@ public class Bug {
         {attribute.formLabel}
     &lt;/label&gt;
     &lt;input nf-field-widget-value="{attribute.name}" class="form-control"
-            id="{attribute.name}" name="{attribute.name}" type="text"&gt;
+            value="{attribute.value}" name="{attribute.name}" type="text"&gt;
 &lt;/div&gt;</code></pre>
         <p>Widget "default/text-input.html"</p>
 
-        <pre style="margin-top: 20px;"><code class="javascript">/*
- * Variables:
- *  - mappingFunction - set your function as value of this variable
- *  - model {string} - Name of the class
- *  - context {string} - Name of the context
- *  - attributeName {string} - Name of the attribute
- *  - attributeType {string} - Type of the attribute
- *  - isAttributePrimary {boolean} - Is the attribute primary?
- */
-
-mappingFunction = function (className, context, attributeName, attributeType, isAttributePrimary) {
+        <pre style="margin-top: 20px;"><code class="javascript">mappingFunction = function (attribute) {
     var widgetNamespace = "default";
 
-    if (context === "list") {
+    if (attribute.model.context === "list") {
         widgetNamespace = "list";
-    } else if (context === "delete" || isAttributePrimary) {
+    } else if (attribute.model.context === "delete" || attribute.primary) {
         widgetNamespace = "disabled";
     }
 
     var widgetName = "";
-    switch (attributeType) {
+    switch (attribute.type) {
         case "java.lang.String":
-        widgetName = "text-input";
-        break;
+            widgetName = "text-input";
+            break;
         case "java.lang.Long":
-        widgetName = "number-input";
-        break;
+            widgetName = "number-input";
+            break;
     }
 
     return widgetNamespace + "/" + widgetName;
-};
-</code></pre>
+};</code></pre>
         <p>Widget mapping function in "mapping/function.js"</p>
 
 
@@ -215,5 +199,8 @@ nutforms.bind(document.getElementById("page"), "en_US");
 &lt;/script&gt;</code></pre>
     </div>
 </div>
+<script>
+    hljs.initHighlighting();
+</script>
 </body>
 </html>
