@@ -6,6 +6,8 @@
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/default.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -29,7 +31,8 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bug <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">Bug <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/cs/vytvorit-bug.html">Vytvořit</a></li>
                             <li><a href="/cs/zobrazit-bug.html">Zobrazit</a></li>
@@ -38,7 +41,8 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Zamestnanec <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">Zaměstnanec <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/cs/vytvorit-zamestnance.html">Vytvořit</a></li>
                             <li><a href="/cs/zobrazit-zamestnance.html">Zobrazit</a></li>
@@ -48,6 +52,8 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    <li><a href="https://github.com/jSquirrel/nutforms-example"> <i class="fa fa-github"
+                                                                                    aria-hidden="true"></i></a></li>
                     <li><a href="/index.html">EN</a></li>
                 </ul>
             </div>
@@ -60,41 +66,15 @@
         <div id="form"></div>
     </div>
     <div class="col-md-6">
-        <pre style="margin-top: 60px;"><code class="html">&lt;body id="page"&gt;
-&lt;div nf-layout="menu/cs"&gt;&lt;/div&gt;
-&lt;div class="container"&gt;
-    &lt;div nf-layout="cz.cvut.fel.nutforms.example.model.Bug/edit"&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;script type="application/javascript"&gt;
-    nutforms.bind(document.getElementById("page"), "cs_CZ");
-&lt;/script&gt;
-&lt;/body&gt;</code></pre>
-        <p>HTML stránka <span style="font-style: italic;">webapp/cs/seznam-zamestnancu.html</span></p>
-        <pre style="margin-top: 60px;"><code class="html">&lt;form class="form" role="form" nf-entity-form="nf-entity-form"&gt;
-    &lt;h1 nf-form-label="nf-form-label"&gt;&lt;/h1&gt;
-    &lt;div nf-field-iterator="2" class="col-md-6"&gt;
-        &lt;h4&gt;Editable fields:&lt;/h4&gt;
-        &lt;!-- 2 fields are rendered here --&gt;
-    &lt;/div&gt;
-    &lt;div nf-field-iterator="2" class="col-md-6"&gt;
-        &lt;h4&gt;Disabled fields:&lt;/h4&gt;
-        &lt;!-- another 2 fields are rendered here --&gt;
-    &lt;/div&gt;
-    &lt;hr&gt;
-&lt;/form&gt;</code></pre>
-        <p>Použitý layout <span style="font-style: italic;">resources/layout/cz.cvut.fel.nutforms.example.model.Bug/edit.html</span></p>
-        <pre style="margin-top: 60px;"><code class="html">&lt;div class="form-group"&gt;
-    &lt;label nf-field-widget-label="{attribute.name}" for="{attribute.name}"&gt;{attribute.formLabel}&lt;/label&gt;
-    &lt;input nf-field-widget-value="{attribute.name}" class="form-control" id="{attribute.name}" name="{attribute.name}"
-           type="text"&gt;
-&lt;/div&gt;</code></pre>
-    <p>Použitý widget pro Popis a Log <span style="font-style: italic;">default/text-input.html</span></p>
-        <pre style="margin-top: 60px;"><code class="html">&lt;div class="form-group"&gt;
-    &lt;label nf-field-widget-label="{attribute.name}" for="{attribute.name}"&gt;{attribute.formLabel}&lt;/label&gt;
-    &lt;input nf-field-widget-value="{attribute.name}" class="form-control" id="{attribute.name}" name="{attribute.name}"
-           type="number" disabled="disabled"&gt;
-&lt;/div&gt;</code></pre>
-    <p>Použitý widget pro ID <span style="font-style: italic;">disabled/number-input.html</span></p>
+        <pre style="margin-top: 60px;"><code class="javascript">Nutforms.generateForm(
+    document.getElementById("form"),
+    "cz.cvut.fel.nutforms.example.model.Bug", // Entity name
+    "cs_CZ", // Locale
+    1, // Entity id
+    "common/one-column-id-first", // Layout name
+    mappingFunction, // Widget mapping function
+    "read" // Business context
+);</code></pre>
     </div>
 </div>
 
@@ -119,7 +99,7 @@
             "cz.cvut.fel.nutforms.example.model.Bug",       // Entity name
             "cs_CZ",                                        // Locale
             1,                                              // Entity id
-            "cz.cvut.fel.nutforms.example.model.Bug/edit",  // Layout name
+            "common/one-column-id-first",                   // Layout name
             mappingFunction,                                // Mapping function
             "read"                                          // Business context
     );

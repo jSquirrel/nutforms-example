@@ -6,6 +6,8 @@
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/default.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -29,7 +31,8 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bug <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">Bug <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/cs/vytvorit-bug.html">Vytvořit</a></li>
                             <li><a href="/cs/zobrazit-bug.html">Zobrazit</a></li>
@@ -38,7 +41,8 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Zamestnanec <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">Zaměstnanec <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/cs/vytvorit-zamestnance.html">Vytvořit</a></li>
                             <li><a href="/cs/zobrazit-zamestnance.html">Zobrazit</a></li>
@@ -48,6 +52,8 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    <li><a href="https://github.com/jSquirrel/nutforms-example"> <i class="fa fa-github"
+                                                                                    aria-hidden="true"></i></a></li>
                     <li><a href="/index.html">EN</a></li>
                 </ul>
             </div>
@@ -100,7 +106,7 @@ public class Bug {
 
         <h2 style="margin-top: 80px;">Použití layoutů</h2>
         <p>Definujte si layouty a použijte je ve svých HTML stránkách.</p>
-        <pre style="margin-top: 20px;"><code class="html">&lt;form nf-entity-form="cz.cvut.fel.nutforms.example.model.Bug:new"&gt;
+        <pre style="margin-top: 20px;"><code class="html">&lt;form&gt;
     &lt;h1 nf-form-label="nf-form-label"&gt;&lt;/h1&gt;
     &lt;div nf-field-widget="id"&gt;&lt;/div&gt;
     &lt;div nf-field-widget="description"&gt;&lt;/div&gt;
@@ -112,7 +118,6 @@ public class Bug {
     &lt;div nf-layout="cz.cvut.fel.nutforms.example.model.Bug/new"&gt;&lt;/div&gt;
 &lt;/div&gt;</code></pre>
         <p>Použití layoutu ve vaší HTML stránce</p>
-
 
 
         <h2 style="margin-top: 80px">Použití widgetů</h2>
@@ -161,7 +166,6 @@ mappingFunction = function (className, context, attributeName, attributeType, is
         <p>Mapovací funkce "mapping/function.js"</p>
 
 
-
         <h2 style="margin-top: 80px">Aspekt lokalizace</h2>
         <p>Nutforms formuláře jsou plně lokalizované. Stačí pouze definovat překlady.</p>
         <pre style="margin-top: 20px;"><code>cz.cvut.fel.nutforms.example.model.Bug.new.form.label = Vytvořit Bug
@@ -171,13 +175,12 @@ cz.cvut.fel.nutforms.example.model.Bug.new.form.log.label = Log
 cz.cvut.fel.nutforms.example.model.Bug.new.form.submit.value = Vytvořit
 cz.cvut.fel.nutforms.example.model.Bug.new.form.submit.succeeded_value = Úspěšně vytvořeno
 cz.cvut.fel.nutforms.example.model.Bug.new.form.submit.failed_value = Vytváření selhalo</code></pre>
-<p>Lokalizace pro formulář entity "cz.cvut.fel.nutforms.example.model.Bug" v kontextu "new"</p>
-
+        <p>Lokalizace pro formulář entity "cz.cvut.fel.nutforms.example.model.Bug" v kontextu "new"</p>
 
 
         <h2 style="margin-top: 80px">Aspekt validace</h2>
         <p>Nutforms formuláře jsou živě validovány pomocí pravidel, která si definujete ve vaší Java aplikaci.
-        Pravidla jsou definována jednou, ale spouštěna dvakrát, jak na klientovi, tak na serveru.</p>
+            Pravidla jsou definována jednou, ale spouštěna dvakrát, jak na klientovi, tak na serveru.</p>
         <pre style="margin-top: 20px;"><code class="java">package cz.cvut.fel.nutforms.example.model.Bug.new;
 
 import cz.cvut.fel.nutforms.example.model.Bug;
@@ -201,8 +204,7 @@ rule "[Bug] Is alphanumeric"
         Bug(description matches "^[a-zA-Z0-9 ]*$")
     then
 end</code></pre>
-<p>Drools pravidla pro "cz.cvut.fel.nutforms.example.model.Bug" v kontextu "new"</p>
-
+        <p>Drools pravidla pro "cz.cvut.fel.nutforms.example.model.Bug" v kontextu "new"</p>
 
 
         <h2 style="margin-top: 80px">Zapnutí Nutforms</h2>
