@@ -192,11 +192,17 @@ end</code></pre>
 
 
         <h2 style="margin-top: 80px">Zapnutí Nutforms</h2>
-        <p>Nakonec Nutforms zapnete přímo na vaší stránce. Předáte pouze element, a který se mají formuláře navázat
-            a nastavíte jazyk.</p>
-        <pre style="margin-top: 20px;"><code class="html">&lt;script type="application/javascript"&gt;
-    nutforms.bind(document.getElementById("page"), "en_US");
-&lt;/script&gt;</code></pre>
+        <p>Nakonec Nutforms použijete pro automatické generování formuláře.</p>
+
+        <pre style="margin-top: 60px;"><code class="javascript">Nutforms.generateForm(
+    document.getElementById("form"),
+    "cz.cvut.fel.nutforms.example.model.Bug", // Entity name
+    "cs_CZ", // Locale
+    null, // Entity id
+    "cz.cvut.fel.nutforms.example.model.Bug/explanatory-cs", // Layout name
+    mappingFunction, // Widget mapping function
+    "new" // Business context
+);</code></pre>
     </div>
 </div>
 <script>

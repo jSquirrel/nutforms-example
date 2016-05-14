@@ -192,11 +192,16 @@ end</code></pre>
 
 
         <h2 style="margin-top: 80px">Start nutforms</h2>
-        <p>At last, you just let Nutforms do their work by binding them to your page. Just provide an element
-            you wish Nutforms to be bound to and set the locale.</p>
-        <pre style="margin-top: 20px;"><code class="html">&lt;script type="application/javascript"&gt;
-nutforms.bind(document.getElementById("page"), "en_US");
-&lt;/script&gt;</code></pre>
+        <p>Finally, just use Nutforms to generate your forms.</p>
+        <pre style="margin-top: 60px;"><code class="javascript">Nutforms.generateForm(
+    document.getElementById("form"),
+    "cz.cvut.fel.nutforms.example.model.Bug", // Entity name
+    "en_US", // Locale
+    null, // Entity id
+    "cz.cvut.fel.nutforms.example.model.Bug/explanatory-cs", // Layout name
+    mappingFunction, // Widget mapping function
+    "new" // Business context
+);</code></pre>
     </div>
 </div>
 <script>
