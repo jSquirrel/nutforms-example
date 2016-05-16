@@ -105,7 +105,7 @@ public class Bug {
 
 
         <h2 style="margin-top: 80px;">Použití layoutů</h2>
-        <p>Definujte si layouty a použijte je ve svých HTML stránkách.</p>
+        <p>Definujte si layouty pro formuláře.</p>
         <pre style="margin-top: 20px;"><code class="html">&lt;form&gt;
     &lt;h1 nf-form-label="nf-form-label"&gt;&lt;/h1&gt;
     &lt;div nf-field-widget="id"&gt;&lt;/div&gt;
@@ -113,11 +113,6 @@ public class Bug {
     &lt;div nf-field-widget="log"&gt;&lt;/div&gt;
 &lt;/form&gt;</code></pre>
         <p>Layout "cz.cvut.fel.nutforms.example.model.Bug/new"</p>
-
-        <pre style="margin-top: 20px;"><code class="html">&lt;div class="container"&gt;
-    &lt;div nf-layout="cz.cvut.fel.nutforms.example.model.Bug/new"&gt;&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-        <p>Použití layoutu ve vaší HTML stránce</p>
 
 
         <h2 style="margin-top: 80px">Použití widgetů</h2>
@@ -127,31 +122,21 @@ public class Bug {
         {attribute.formLabel}
     &lt;/label&gt;
     &lt;input nf-field-widget-value="{attribute.name}" class="form-control"
-            id="{attribute.name}" name="{attribute.name}" type="text"&gt;
+            value="{attribute.value}" name="{attribute.name}" type="text"&gt;
 &lt;/div&gt;</code></pre>
         <p>Widget "default/text-input.html"</p>
 
-        <pre style="margin-top: 20px;"><code class="javascript">/*
- * Variables:
- *  - mappingFunction - set your function as value of this variable
- *  - model {string} - Name of the class
- *  - context {string} - Name of the context
- *  - attributeName {string} - Name of the attribute
- *  - attributeType {string} - Type of the attribute
- *  - isAttributePrimary {boolean} - Is the attribute primary?
- */
-
-mappingFunction = function (className, context, attributeName, attributeType, isAttributePrimary) {
+        <pre style="margin-top: 20px;"><code class="javascript">mappingFunction = function (attribute) {
     var widgetNamespace = "default";
 
-    if (context === "list") {
+    if (attribute.model.context === "list") {
         widgetNamespace = "list";
-    } else if (context === "delete" || isAttributePrimary) {
+    } else if (attribute.model.context === "delete" || attribute.primary) {
         widgetNamespace = "disabled";
     }
 
     var widgetName = "";
-    switch (attributeType) {
+    switch (attribute.type) {
         case "java.lang.String":
             widgetName = "text-input";
             break;
@@ -161,8 +146,7 @@ mappingFunction = function (className, context, attributeName, attributeType, is
     }
 
     return widgetNamespace + "/" + widgetName;
-};
-        </code></pre>
+};</code></pre>
         <p>Mapovací funkce "mapping/function.js"</p>
 
 
@@ -208,17 +192,20 @@ end</code></pre>
 
 
         <h2 style="margin-top: 80px">Zapnutí Nutforms</h2>
-        <p>Nakonec Nutforms zapnete přímo na vaší stránce. Předáte pouze element, a který se mají formuláře navázat
-            a nastavíte jazyk.</p>
-        <pre style="margin-top: 20px;"><code class="html">&lt;script type="application/javascript"&gt;
-    nutforms.bind(document.getElementById("page"), "en_US");
-&lt;/script&gt;</code></pre>
+        <p>Nakonec Nutforms použijete pro automatické generování formuláře.</p>
+
+        <pre style="margin-top: 60px;"><code class="javascript">Nutforms.generateForm(
+    document.getElementById("form"),
+    "cz.cvut.fel.nutforms.example.model.Bug", // Entity name
+    "cs_CZ", // Locale
+    null, // Entity id
+    "cz.cvut.fel.nutforms.example.model.Bug/explanatory-cs", // Layout name
+    mappingFunction, // Widget mapping function
+    "new" // Business context
+);</code></pre>
     </div>
 </div>
-<script src="/js/vendors.js"></script>
-<script src="/js/bundle.js"></script>
 <script>
-    nutforms.bind(document.getElementById("page"), "cz_CS");
     hljs.initHighlighting();
 </script>
 </body>

@@ -14,7 +14,7 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
 </head>
-<body style="padding: 20px auto" id="page">;
+<body style="padding: 20px auto" id="page">
 
 <div class="container">
     <nav class="navbar navbar-default">
@@ -72,10 +72,30 @@
     "cz.cvut.fel.nutforms.example.model.Bug", // Entity name
     "cs_CZ", // Locale
     1, // Entity id
-    "common/one-column-id-first", // Layout name
+    "common/two-column", // Layout name
     mappingFunction, // Widget mapping function
     "read" // Business context
 );</code></pre>
+
+        <h2>Used layout & widgets</h2>
+        <ul>
+            <li>
+                <a href="https://github.com/jSquirrel/nutforms-example/blob/master/src/main/resources/layout/common/two-column.html" target="_blank">
+                    Layout: common/two-column</a>
+            </li>
+            <li>
+                <a href="https://github.com/jSquirrel/nutforms-example/blob/master/src/main/resources/widget/disabled/number-input.html" target="_blank">
+                    Widget: disabled/number-input</a>
+            </li>
+            <li>
+                <a href="https://github.com/jSquirrel/nutforms-example/blob/master/src/main/resources/widget/disabled/text-input.html" target="_blank">
+                    Widget: disabled/text-input</a>
+            </li>
+            <li>
+                <a href="https://github.com/jSquirrel/nutforms-example/blob/master/src/main/resources/widget/default/relation-to-one.html" target="_blank">
+                    Widget: default/relation-to-one</a>
+            </li>
+        </ul>
     </div>
 </div>
 
@@ -100,7 +120,7 @@
             "cz.cvut.fel.nutforms.example.model.Bug",       // Entity name
             "en_US",                                        // Locale
             1,                                              // Entity id
-            "common/one-column-id-first",                   // Layout name
+            "common/two-column",                            // Layout name
             mappingFunction,                                // Mapping function
             "read"                                          // Business context
     );
