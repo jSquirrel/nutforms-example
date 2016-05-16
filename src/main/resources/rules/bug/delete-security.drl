@@ -1,0 +1,13 @@
+package cz.cvut.fel.nutforms.example.model.Bug.delete;
+
+import cz.cvut.fel.nutforms.example.model.Bug;
+
+dialect  "mvel"
+
+rule "[Security][Bug] Is editable"
+    when
+        Bug($description : description)
+        Bug($log : log)
+        eval(false)
+    then
+end

@@ -1,0 +1,13 @@
+package cz.cvut.fel.nutforms.example.model.Employee.delete;
+
+import cz.cvut.fel.nutforms.example.model.Employee;
+
+dialect  "mvel"
+
+rule "[Security][Employee] Is editable"
+    when
+        Employee($firstName : firstName)
+        Employee($lastName : lastName)
+        eval(false)
+    then
+end

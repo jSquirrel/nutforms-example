@@ -1,7 +1,17 @@
 package cz.cvut.fel.nutforms.example.model.Employee.edit;
+
+import cz.cvut.fel.nutforms.example.model.Employee;
+
 dialect  "mvel"
 
-rule "edit"
+rule "[Employee] Is name filled"
     when
+        Employee((firstName != null && firstName.length > 0) || (lastName != null && lastName.length > 0))
+    then
+end
+
+rule "[Employee] Is name valid"
+    when
+        Employee(firstName matches "^[a-zA-Z]*$" && lastName matches "^[a-zA-Z]*$")
     then
 end
