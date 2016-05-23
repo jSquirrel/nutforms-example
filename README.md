@@ -41,6 +41,15 @@ $ mvn install
 
 ## Deployment
 
+Before you deploy the application, you must install all javascript libraries the example depends on.
+The [NPM](https://www.npmjs.com) package management system must be installed on your machine in order to do this.
+Then, naviage to `src/main/webapp` folder and install the dependencies.
+
+```
+$ cd ./src/main/webapp
+$ npm install
+```
+
 The application can be deployed to any server supporting WAR artifacts,
 for example [Apache Tomcat](http://tomcat.apache.org).
 
